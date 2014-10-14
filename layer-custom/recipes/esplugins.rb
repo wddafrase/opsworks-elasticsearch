@@ -1,3 +1,4 @@
+# because elasticsearch cookbook wont install this plugin for some reason
 script 'install_plugin_es_head' do
   interpreter 'bash'
   user 'root'
