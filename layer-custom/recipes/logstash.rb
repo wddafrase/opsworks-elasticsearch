@@ -37,13 +37,6 @@ remote_file '/opt/logstash/lumberjack.crt' do
   source node[:layer_custom][:crt]
 end
 
-
-service 'logstash' do
-  supports :status => true, :restart => true
-  action [ :enable, :start ]
-end
-
-
 # add nginx pattern
 template 'nginx_pattern.erb' do
   path '/opt/logstash/patterns/nginx'
@@ -60,4 +53,10 @@ template 'logstash.conf.erb' do
   mode 0644
   notifies :restart, 'service[logstash]', :immediately
   variables(eshost: node[:opsworks][:stack]['elb-load-balancers'][0][:dns_name])
+end
+
+
+service 'logstash' do
+  supports :status => true, :restart => true
+  action [ :enable, :start ]
 end
