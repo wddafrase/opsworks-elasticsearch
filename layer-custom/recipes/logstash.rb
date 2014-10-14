@@ -46,7 +46,7 @@ end
 
 # add nginx pattern
 template 'nginx_pattern.erb' do
-  path '/opt/logstash/pattern/nginx'
+  path '/opt/logstash/patterns/nginx'
   source 'nginx_pattern.erb'
   owner 'root'
   mode 0644
