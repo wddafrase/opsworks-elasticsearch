@@ -3,7 +3,7 @@ apt_repository 'logstash' do
   uri 'http://packages.elasticsearch.org/logstash/1.4/debian'
   key 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch'
   distribution 'stable'
-  components 'main'
+  components ['main']
 end
 
 # install package
