@@ -52,7 +52,7 @@ template 'logstash.conf.erb' do
   owner 'root'
   mode 0644
   notifies :restart, 'service[logstash]', :immediately
-  variables(eshost: node[:opsworks][:stack]['elb-load-balancers'][0][:dns_name])
+  variables(eshost: node[:layer_custom][:es_host])
 end
 
 

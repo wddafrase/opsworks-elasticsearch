@@ -6,6 +6,6 @@ node[:deploy].each do |application, deploy|
     user deploy[:user]
 
     # first elb
-    variables(eshost: node[:opsworks][:stack]['elb-load-balancers'][0][:dns_name])
+    variables(eshost: node[:layer_custom][:es_host])
   end
 end
